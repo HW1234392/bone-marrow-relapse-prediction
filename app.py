@@ -23,7 +23,7 @@ st.write("""
 """)
 
 recipient_gender = st.selectbox("수혜자의 성별(male/female)", ['male', 'female'])
-recipient_AB0 = st.selectbox("수혜자의 ABO 혈액형(0, A, AB, B)", ['0', 'A', 'B', 'AB'])
+recipient_AB0 = st.selectbox("수혜자의 ABO 혈액형(0, A, AB, B)", ['0', 'A', 'B', 'AB', '?'])
 recipient_rh = st.selectbox("수혜자의 Rh 인자(+/-)", ['+', '-'])
 disease = st.selectbox("기저 질병의 종류", ['ALL', 'AML', 'chronic', 'nonmalignant', 'lymphoma'])
 disease_group = st.selectbox("질병군", ['malignant', 'nonmalignant'])
@@ -44,4 +44,5 @@ if st.button("예측하기"):
     }])
 
     pred = model.predict(input_df)[0]
+
     st.success(f"예측 결과: {pred}")
